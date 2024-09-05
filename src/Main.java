@@ -268,7 +268,6 @@ public static void availableSeat(char element){
     String student = new Scanner(System.in).nextLine();
     signBorder();
     System.out.print("> Are you sure to book? (Y/n) : ");
-    System.out.println("Please booking agian");
 
     switch (new Scanner(System.in).nextLine().charAt(0)){
         case 'Y','y' -> {
