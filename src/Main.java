@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Main {
     static int [][] arrays;
     static String[][][] thirdArrays;
@@ -29,7 +28,7 @@ public class Main {
 
     public static void homePage(){
         signBorder();
-        System.out.println("cstad hall booking system".toUpperCase());
+        System.out.println("hall booking system".toUpperCase());
         signBorder();
     }
     public static void signBorder(){
@@ -73,9 +72,8 @@ public class Main {
                 <A> Booking
                 <B> Hall
                 <C> Showtime
-                <D> Reboot Showtime
-                <E> History
-                <F> Exit
+                <D> History
+                <E> Exit
                 """);
     }
 
@@ -104,22 +102,22 @@ public class Main {
                 mainService(inputOptionMenu());
 
             }
+//            case 'D','d'->{
+//                setArrays(arrays);
+//                seatElements = new String[0];
+//                studentId = new String[0];
+//                hallHistory = new Character[0];
+//                dateTime = new String[0];
+//                applicationMenu();
+//                mainService(inputOptionMenu());
+//
+//            }
             case 'D','d'->{
-                setArrays(arrays);
-                seatElements = new String[0];
-                studentId = new String[0];
-                hallHistory = new Character[0];
-                dateTime = new String[0];
-                applicationMenu();
-                mainService(inputOptionMenu());
-
-            }
-            case 'E','e'->{
                 bookingHistory(seatElements.length);
                 applicationMenu();
                 mainService(inputOptionMenu());
             }
-            case 'F','f'->{
+            case 'E','e'->{
             System.out.println("-".repeat(35));
             System.out.println("=".repeat(5).concat("> ").concat("Shutdown System").concat(" <").concat("=".repeat(5)));
             System.out.println("-".repeat(35));
@@ -218,7 +216,7 @@ public static void bookingHistory(int booked){
         System.out.printf("#NO: %d%n",i+1);
         System.out.println("#SEATS: ["+seatElements[i].toUpperCase().concat("]"));
         var record = """
-                    #HALL       #STU.ID              #CREATE AT
+                    #HALL       #ID              #SHOW TIME
                     HALL %c     %s                   %s
                     """;
 
@@ -317,7 +315,7 @@ public static boolean bookSeats(char element, String seat) {
         System.out.println("Invalid element code.");
         return false;
     }
-
+    
     for (String s : splitSeats) {
         int seatIndex = Integer.parseInt(s.split("-")[1]);
         if (thirdArrays[arrayIndex][seatIndex][s.charAt(0) - 'a'].contains("BO")) {
